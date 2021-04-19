@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+source "$(dirname "$0")/_common"
+VOLUME=$(pamixer --get-volume)
+
+if [ $BLOCK_BUTTON -eq 1 ]; then
+    pamixer -t
+fi
+
+if [ $(pamixer --get-mute) == "true" ]; then
+    ICON=""
+else
+    if [ $VOLUME -gt 50 ]; then
+        ICON=""
+    elif [ $VOLUME -gt 0 ]; then
+        ICON=""
+    else
+        ICON=""
+    fi
+fi
+echo "$ICON  $VOLUME%"
+
+echo
+echo $(xresource color5)

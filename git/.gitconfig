@@ -1,0 +1,8 @@
+[user]
+	name = Jean-Sébastien Beaulieu
+	email = me@jsbeaulieu.com
+[core]
+	excludesfile = /home/jsbeaulieu/.gitignore
+
+[init]
+	defaultBranch = main

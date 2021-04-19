@@ -1,0 +1,5 @@
+configuration {
+  theme: "onedark";
+  monitor: "primary";
+}
+

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+source "$(dirname "$0")/_common"
+
+MEMUSED=$(cat /proc/meminfo | sed '2q;d' | awk '{print $2}')
+MEMTOTAL=$(cat /proc/meminfo | sed '1q;d' | awk '{print $2}')
+
+echo "  $(echo "$MEMUSED/$MEMTOTAL" | bc -l | awk '{print int(100 - $NF * 100 + 0.5)"%"}')"
+echo
+echo $(xresource color3)

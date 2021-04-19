@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+source "$(dirname "$0")/_common"
+
+echo "  $(date "+%H:%M:%S")"
+echo
+echo $(xresource color1)

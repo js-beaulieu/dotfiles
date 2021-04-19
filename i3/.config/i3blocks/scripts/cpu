@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+source "$(dirname "$0")/_common"
+
+echo "  $(top -bn1 | grep "Cpu(s)" | \
+           sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | \
+           awk '{print int(100 - $1 + 0.5)"%"}')"
+
+echo
+echo $(xresource color4)

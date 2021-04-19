@@ -1,0 +1,16 @@
+command=~/.config/i3blocks/scripts/$BLOCK_NAME
+
+[cpu]
+interval=5
+
+[ram]
+interval=5
+
+[volume]
+interval=1
+
+[date]
+interval=1
+
+[clock]
+interval=1

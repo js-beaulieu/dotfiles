@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+xresource() {
+    color=$1
+    echo $(xrdb -query | grep *.$color: | awk '{print $NF}' | head -n 1 )
+}

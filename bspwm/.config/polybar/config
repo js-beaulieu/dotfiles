@@ -1,0 +1,146 @@
+[colors]
+foreground = ${xrdb:foreground}
+background = ${xrdb:background}
+darker = ${xrdb:darker}
+cursorColor = ${xrdb:cursorColor}
+darkblack = ${xrdb:color0}
+black = ${xrdb:color8}
+darkred = ${xrdb:color9}
+red = ${xrdb:color1}
+darkgreen = ${xrdb:color10}
+green = ${xrdb:color2}
+darkyellow = ${xrdb:color11}
+yellow = ${xrdb:color3}
+darkblue = ${xrdb:color12}
+blue = ${xrdb:color4}
+darkpurple = ${xrdb:color13}
+purple = ${xrdb:color5}
+darkcyan = ${xrdb:color14}
+cyan = ${xrdb:color6}
+darkgray = ${xrdb:color15}
+gray = ${xrdb:color7}
+
+[vars]
+padding = 2
+borderSize = 2
+
+[settings]
+format-padding = ${vars.padding}
+compositing-border = bottom
+
+[bar/base]
+bottom = false
+monitor = ${env:MONITOR:}
+module-margin = 0
+underline-size = ${vars.borderSize}
+height = 28
+background = ${colors.darker}
+foreground = ${colors.foreground}
+border-bottom-size = ${vars.borderSize}
+border-color = ${colors.darker}
+font-0 = Roboto:size=11:weight=medium;3
+font-1 = Font Awesome 5 Free:size=11:weight=bold;3
+font-2 = Font Awesome 5 Brands:size=11:weight=bold;3
+width = 80%
+offset-x = 10%
+offset-y = 10
+
+[bar/main]
+inherit = bar/base
+modules-left = bspwm title
+modules-right = cpu ram volume keyboard date
+tray-position = center
+
+[bar/bar1]
+inherit = bar/base
+modules-left = bspwm
+modules-right = music
+
+[module/bspwm]
+type = internal/bspwm
+pin-workspaces = true
+
+format =    <label-state>  <label-mode>
+format-foreground = ${colors.red}
+format-padding = ${vars.padding}
+
+label-monitor = %name%
+
+label-dimmed = %name%
+label-dimmed-foreground = ${colors.foreground}
+label-dimmed-padding = ${vars.padding}
+
+label-focused = %name%
+label-focused-foreground = ${colors.red}
+label-focused-padding = ${vars.padding}
+
+label-occupied = %name%
+label-occupied-foreground = ${colors.foreground}
+label-occupied-padding = ${vars.padding}
+
+label-urgent = %name%
+label-urgent-foreground = ${colors.darkyellow}
+label-urgent-padding = ${vars.padding}
+
+label-empty = %name%
+label-empty-foreground = ${colors.foreground}
+label-empty-padding = ${vars.padding}
+
+[module/title]
+type = internal/xwindow
+format =    <label>
+format-foreground = ${colors.darkgreen}
+label-maxlen = 120
+label-empty = Desktop
+
+[module/date]
+type = internal/date
+interval = 1.0
+date = %A, %d %B %Y
+time = %H:%M:%S
+label =    %date% %time%
+format-foreground = ${colors.red}
+
+[module/volume]
+type = internal/pulseaudio
+use-ui-max = true
+interval = 5
+
+label-volume = %percentage%%
+format-volume = <ramp-volume>   <label-volume>
+format-volume-foreground = ${colors.darkblue}
+
+label-muted =    N/A
+format-muted-foreground = ${colors.darkred}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+[module/music]
+type = custom/script
+interval = 1
+format-prefix = "   "
+format = <label>
+exec = $HOME/.local/bin/bspwm_music.sh
+format-foreground = ${colors.red}
+click-left = playerctl previous &
+click-middle = playerctl play-pause &
+click-right = playerctl next &
+
+[module/cpu]
+type = internal/cpu
+format =    <label>
+format-foreground = ${colors.darkpurple}
+
+[module/ram]
+type = internal/memory
+format =    <label>
+format-foreground = ${colors.darkcyan}
+
+[module/keyboard]
+type = internal/xkeyboard
+format =    <label-layout>
+format-foreground = ${colors.darkgreen}
+exec = setxkbmap -query | grep layout | awk '{print $2}'
+
