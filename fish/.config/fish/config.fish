@@ -19,6 +19,9 @@ set -x ANDROID_SDK_ROOT "$HOME/Android/Sdk"
 # editor
 set -x EDITOR "nvim"
 
+# bspwm fixes
+set -x _JAVA_AWT_WM_NONREPARENTING 1
+
 
 ########################################
 # Path

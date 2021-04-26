@@ -21,8 +21,9 @@ darkgray = ${xrdb:color15}
 gray = ${xrdb:color7}
 
 [vars]
-padding = 2
+padding = 3
 borderSize = 2
+moduleMargin = 1
 
 [settings]
 format-padding = ${vars.padding}
@@ -31,11 +32,11 @@ compositing-border = bottom
 [bar/base]
 bottom = false
 monitor = ${env:MONITOR:}
-module-margin = 0
+module-margin = ${vars.moduleMargin}
 underline-size = ${vars.borderSize}
 height = 28
-background = ${colors.darker}
-foreground = ${colors.foreground}
+background = ${colors.background}
+foreground = ${colors.darker}
 border-bottom-size = ${vars.borderSize}
 border-color = ${colors.darker}
 font-0 = Roboto:size=11:weight=medium;3
@@ -60,31 +61,29 @@ modules-right = music
 type = internal/bspwm
 pin-workspaces = true
 
-format =    <label-state>  <label-mode>
-format-foreground = ${colors.red}
-format-padding = ${vars.padding}
+format =   <label-state>  <label-mode>
+format-foreground = ${colors.blue}
 
 label-monitor = %name%
 
 label-dimmed = %name%
-label-dimmed-foreground = ${colors.foreground}
-label-dimmed-padding = ${vars.padding}
+label-dimmed-padding = 2
 
 label-focused = %name%
-label-focused-foreground = ${colors.red}
-label-focused-padding = ${vars.padding}
+label-focused-foreground = ${colors.blue}
+label-focused-padding = 2
 
 label-occupied = %name%
 label-occupied-foreground = ${colors.foreground}
-label-occupied-padding = ${vars.padding}
+label-occupied-padding = 2
 
 label-urgent = %name%
 label-urgent-foreground = ${colors.darkyellow}
-label-urgent-padding = ${vars.padding}
+label-urgent-padding = 2
 
 label-empty = %name%
 label-empty-foreground = ${colors.foreground}
-label-empty-padding = ${vars.padding}
+label-empty-padding = 2
 
 [module/title]
 type = internal/xwindow
@@ -99,7 +98,7 @@ interval = 1.0
 date = %A, %d %B %Y
 time = %H:%M:%S
 label =    %date% %time%
-format-foreground = ${colors.red}
+format-foreground = ${colors.blue}
 
 [module/volume]
 type = internal/pulseaudio
@@ -108,7 +107,7 @@ interval = 5
 
 label-volume = %percentage%%
 format-volume = <ramp-volume>   <label-volume>
-format-volume-foreground = ${colors.darkblue}
+format-volume-foreground = ${colors.purple}
 
 label-muted =    N/A
 format-muted-foreground = ${colors.darkred}
@@ -123,7 +122,7 @@ interval = 1
 format-prefix = "   "
 format = <label>
 exec = $HOME/.local/bin/bspwm_music.sh
-format-foreground = ${colors.red}
+format-foreground = ${colors.blue}
 click-left = playerctl previous &
 click-middle = playerctl play-pause &
 click-right = playerctl next &
@@ -131,7 +130,7 @@ click-right = playerctl next &
 [module/cpu]
 type = internal/cpu
 format =    <label>
-format-foreground = ${colors.darkpurple}
+format-foreground = ${colors.red}
 
 [module/ram]
 type = internal/memory
