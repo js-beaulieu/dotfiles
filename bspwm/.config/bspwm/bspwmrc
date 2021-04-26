@@ -24,14 +24,14 @@ COLOR_PRESEL="$(xresource color10)"
 
 bspc config active_border_color $COLOR_ACTIVE
 bspc config border_width 2
-bspc config border_radius 5
 bspc config borderless_monocle false
 bspc config focused_border_color $COLOR_FOCUSED
 bspc config gapless monocle false
 bspc config normal_border_color $COLOR_NORMAL
 bspc config presel_feedback_color $COLOR_PRESEL
 bspc config split_ratio 0.5
-bspc config window_gap 10
+bspc config window_gap 0
+bspc config top_padding 28
 bspc config wm_name LG3D
  
 # autostart
@@ -46,3 +46,4 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 pgrep -x picom > /dev/null || picom -b --experimental-backends &
 pgrep -x unclutter > /dev/null || unclutter &
 pgrep -x xautolock > /dev/null || xautolock -time 15 -locker "slock" &
+

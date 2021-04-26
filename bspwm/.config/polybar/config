@@ -37,14 +37,13 @@ underline-size = ${vars.borderSize}
 height = 28
 background = ${colors.background}
 foreground = ${colors.darker}
-border-bottom-size = ${vars.borderSize}
-border-color = ${colors.darker}
 font-0 = Roboto:size=11:weight=medium;3
 font-1 = Font Awesome 5 Free:size=11:weight=bold;3
 font-2 = Font Awesome 5 Brands:size=11:weight=bold;3
-width = 80%
-offset-x = 10%
-offset-y = 10
+width = 100%
+;width = 80%
+;offset-x = 10%
+;offset-y = 10
 
 [bar/main]
 inherit = bar/base
