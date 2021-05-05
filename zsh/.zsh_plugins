@@ -1,0 +1,27 @@
+# Make it fish-like
+zsh-users/zsh-completions
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-history-substring-search
+zsh-users/zsh-autosuggestions
+
+# Oh-my-zsh plugins
+robbyrussell/oh-my-zsh path:lib
+robbyrussell/oh-my-zsh path:plugins/git
+robbyrussell/oh-my-zsh path:plugins/rsync
+robbyrussell/oh-my-zsh path:plugins/z
+robbyrussell/oh-my-zsh path:plugins/ssh-agent
+robbyrussell/oh-my-zsh path:plugins/docker-compose
+robbyrussell/oh-my-zsh path:plugins/docker
+robbyrussell/oh-my-zsh path:plugins/pyenv
+robbyrussell/oh-my-zsh path:plugins/tmux
+robbyrussell/oh-my-zsh path:plugins/vi-mode
+robbyrussell/oh-my-zsh path:plugins/extract
+
+# Tools
+lukechilds/zsh-nvm
+zpm-zsh/ssh
+
+# Theme
+mafredri/zsh-async
+sindresorhus/pure
+

@@ -47,7 +47,7 @@ super + Tab
 
 # sxhkd
 alt + shift + Escape
-    pkill -USR1 -x sxhkd
+    pkill -USR1 -x sxhkd; sxhkd &
 
 # terminal
 super + Return
