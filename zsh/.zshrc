@@ -22,6 +22,9 @@ export EDITOR="nvim"
 # bspwm fix for java apps
 export _JAVA_AWT_WM_NONREPARENTING=1
 
+# auto use nvm
+export NVM_AUTO_USE=true
+
 ########################################
 # Path
 ########################################
@@ -96,4 +99,7 @@ compinit -i
 
 # SdkMan
 [[ -s "/home/jsbeaulieu/.sdkman/bin/sdkman-init.sh" ]] && source "/home/jsbeaulieu/.sdkman/bin/sdkman-init.sh"
+
+# tabtab source for packages
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
 

@@ -44,6 +44,8 @@ alt + Tab
     rofi -show window 
 super + Tab
     rofi -show windowcd
+super + shift + p
+    rofi -show fb -modi "fb:$HOME/.config/rofi/scripts/power.sh"
 
 # sxhkd
 alt + shift + Escape

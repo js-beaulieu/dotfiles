@@ -21,7 +21,7 @@
   spacing: 0;
   background-color: transparent;
 
-  font: "Roboto 12";
+  font: "IBM Plex Sans Regular 11";
   text-color: @text;
 }
 
@@ -36,7 +36,7 @@ mainbox {
   padding: 10px;
   background-color: @bg;
   border: 2px;
-  border-color: @red;
+  border-color: @blue;
 }
 
 inputbar {
@@ -45,7 +45,7 @@ inputbar {
 }
 
 prompt {
-  text-color: @red;
+  text-color: @blue;
 }
 
 textbox-prompt-colon {
@@ -71,8 +71,8 @@ element {
 }
 
 element selected {
-  background-color: @emphasis;
-  text-color: @text;
+  background-color: @blue;
+  text-color: @bg;
 }
 
 element urgent, element selected urgent {

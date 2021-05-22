@@ -21,7 +21,7 @@ darkgray = ${xrdb:color15}
 gray = ${xrdb:color7}
 
 [vars]
-padding = 3
+padding = 2
 borderSize = 2
 moduleMargin = 1
 
@@ -37,7 +37,7 @@ underline-size = ${vars.borderSize}
 height = 28
 background = ${colors.background}
 foreground = ${colors.darker}
-font-0 = Roboto:size=11:weight=medium;3
+font-0 = IBM Plex Sans:size=11:weight=regular;3
 font-1 = Font Awesome 5 Free:size=11:weight=bold;3
 font-2 = Font Awesome 5 Brands:size=11:weight=bold;3
 width = 100%
