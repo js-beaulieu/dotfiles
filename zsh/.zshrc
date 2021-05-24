@@ -30,9 +30,9 @@ export NVM_AUTO_USE=true
 ########################################
 typeset -U path
 path=($HOME/.bin $HOME/.local/bin $path)
+[ -d $PYENV_ROOT/bin ] && path=($PYENV_ROOT/bin $path)
 [ -d $HOME/.yarn/bin ] && path=($HOME/.yarn/bin $path)
 [ -d $HOME/.poetry/bin ] && path=($HOME/.poetry/bin $path)
-[ -d $HOME/.pyenv/bin ] && path=($HOME/.pyenv/bin $path)
 [ -d $HOME/tools/flutter/bin ] && path=($HOME/tools/flutter/bin $path)
 [ -d $HOME/.cargo/bin ] && path=($HOME/.cargo/bin $path)
 if [ -d "$HOME/Android/Sdk" ]; then
