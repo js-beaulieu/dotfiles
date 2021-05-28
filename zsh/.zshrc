@@ -44,33 +44,6 @@ fi
 export PATH
 
 ########################################
-# Aliases
-########################################
-[ $(command -v exa) ] && alias ls="exa" || alias ls="ls --color=always"
-[ $(command -v nvim) ] && alias vim="nvim"
-[ $(command -v bat) ] && alias cat="bat --theme=TwoDark"
-alias ll="ls -lh"
-alias la="ls -lha"
-alias tna="tmux new -A -s"
-alias gdh="git diff HEAD"
-alias nr="npm run"
-alias zshr="antibody bundle < ~/.zsh_plugins > $HOME/.zsh_plugins.sh && echo 'static plugin file generated'"
-
-function mcd() {
-    mkdir -p $@ && cd ${@:$#}
-}
-
-function dockstop() {
-    if [ -z "$1" ]; then
-        echo "Stopping all containers"
-        docker stop $(docker ps -q)
-    else
-        echo "Stopping containers starting with '[$1]'"
-        docker ps --format '{{.Names}}' | grep "$1" | awk '{print $1}' | xargs -I {} docker stop {}
-    fi
-}
-
-########################################
 # Misc
 ########################################
 # shell
@@ -102,4 +75,31 @@ compinit -i
 
 # tabtab source for packages
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+
+########################################
+# Aliases
+########################################
+[ $(command -v exa) ] && alias ls="exa" || alias ls="ls --color=always"
+[ $(command -v nvim) ] && alias vim="nvim"
+[ $(command -v bat) ] && alias cat="bat --theme=TwoDark"
+alias ll="ls -lh"
+alias la="ls -lha"
+alias tna="tmux new -A -s"
+alias gdh="git diff HEAD"
+alias nr="npm run"
+alias zshr="antibody bundle < ~/.zsh_plugins > $HOME/.zsh_plugins.sh && echo 'static plugin file generated'"
+
+function mcd() {
+    mkdir -p $@ && cd ${@:$#}
+}
+
+function dockstop() {
+    if [ -z "$1" ]; then
+        echo "Stopping all containers"
+        docker stop $(docker ps -q)
+    else
+        echo "Stopping containers starting with '[$1]'"
+        docker ps --format '{{.Names}}' | grep "$1" | awk '{print $1}' | xargs -I {} docker stop {}
+    fi
+}
 
