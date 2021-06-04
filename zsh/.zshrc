@@ -76,6 +76,10 @@ compinit -i
 # tabtab source for packages
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
 
+# fzf
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
+
 ########################################
 # Aliases
 ########################################
@@ -88,6 +92,10 @@ alias tna="tmux new -A -s"
 alias gdh="git diff HEAD"
 alias nr="npm run"
 alias zshr="antibody bundle < ~/.zsh_plugins > $HOME/.zsh_plugins.sh && echo 'static plugin file generated'"
+
+function gcof() {
+    git checkout $(git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/ | head -20 | fzf)
+}
 
 function mcd() {
     mkdir -p $@ && cd ${@:$#}
