@@ -4,10 +4,13 @@
 HOSTNAME=$(hostname)
 if [[ $HOSTNAME == 'RyzenDev-JS' ]]; then
     MONITOR_MAIN="DisplayPort-0"
+    MONITOR_TOP="HDMI-A-1"
     MONITOR_RIGHT="HDMI-A-0"
-    xrandr --output $MONITOR_MAIN --primary --auto --output $MONITOR_RIGHT --right-of $MONITOR_MAIN --rotation left
-    bspc monitor $MONITOR_MAIN -d 1 2 3 4 5
-    bspc monitor $MONITOR_RIGHT -d 6 7 8 9 10
+    xrandr --output $MONITOR_MAIN --primary --mode 3440x1440 --pos 0x1080 --rotate normal --output $MONITOR_RIGHT --mode 1920x1080 --pos 3440x840 --rotate left --output $MONITOR_TOP --mode 1920x1080 --pos 760x0 --rotate normal
+    bspc wm -O $MONITOR_MAIN $MONITOR_TOP $MONITOR_RIGHT
+    bspc monitor $MONITOR_MAIN -d 1 2 3 4
+    bspc monitor $MONITOR_TOP -d 5 6
+    bspc monitor $MONITOR_RIGHT -d 7 8 9 10
 else
     xrandr --auto
     bspc monitor -d 1 2 3 4 5 6 7 8 9 10
@@ -19,7 +22,7 @@ function xresource() {
 }
 COLOR_NORMAL="$(xresource darker)"
 COLOR_ACTIVE="$(xresource foreground)"
-COLOR_FOCUSED="$(xresource color4)"
+COLOR_FOCUSED="$(xresource color1)"
 COLOR_PRESEL="$(xresource color10)"
 
 bspc config active_border_color $COLOR_ACTIVE
